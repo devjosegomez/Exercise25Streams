@@ -2,7 +2,6 @@ package com.exercise25streams.app;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -19,8 +18,10 @@ public class StreamsApp {
 			myReader = new FileReader(myFile);
 			myBuffer = new BufferedReader(myReader);
 			
-			line = myBuffer.readLine();
-			System.out.println(line);
+			while((line = myBuffer.readLine()) != null) {
+				System.out.println(line);
+			}
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}finally {
